@@ -1,0 +1,44 @@
+docker pull ubuntu (command will be displayed in docker hub ) => will create a new docker image
+
+
+docker run -it ubuntu (will create new container   -it -> interactive)
+
+now you will be able to use ubuntu command line in the vs code terminal 
+
+
+docker build -t hello-docker .   =>  to build an image
+
+docker images   => to view all images
+
+docker ps  => gives list of current running containers
+docker ps -a  => gives list of all containers
+
+docker run hello-docker  => to execute an image
+
+docker run -it hello-docker sh
+
+
+docker build -t  react-docker .  => will build the image
+
+docker run -p 5173:5173  react-docker  => will start a container, with the port mapping included
+
+docker run -p 5173:5173 -v "$(pwd):/app" react-docker => this will link our local code to the container, so the changes in code will automatically make the changes in the output
+pwd -> current dir,  -v -> volume  
+
+volume is used to connect the code in the container to our workspace
+
+docker run -p 5173:5173 -v "$(pwd):/app" -v /app/node_modules  react-docker => we have to create a new volume for the node_modules dir in the container
+we connect the container code to our workspace by creating a volume  -v "$(pwd):/app"
+then we also have to connect our dependencies so that new installations automatically sync , so a new volume for that  -v /app/node_modules 
+
+
+docker stop 967  => stop a running container , 967 => first 3 letters of the container id 
+
+docker container prune  => will remove all stopped containers
+
+
+
+//Publishing an Image  (react-docker is folder name)
+docker login
+docker tag react-docker username/react-docker
+docker push username/react-docker
