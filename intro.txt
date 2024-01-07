@@ -55,3 +55,4 @@ docker init
 docker compose up
 
 docker compose watch  => to see changes in real time 
+we add the watch thing in the compose.yaml file
