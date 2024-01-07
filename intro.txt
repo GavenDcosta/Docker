@@ -53,3 +53,5 @@ shortcut to make a docker project
 docker init 
 (then make all the changes as required by our project)
 docker compose up
+
+docker compose watch  => to see changes in real time 
