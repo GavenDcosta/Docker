@@ -18,6 +18,10 @@ docker run hello-docker  => to execute an image
 docker run -it hello-docker sh
 
 
+//when creating a vite always add 
+"scripts": 
+    "dev": "vite --host",     --> --host should be added
+
 docker build -t  react-docker .  => will build the image
 
 docker run -p 5173:5173  react-docker  => will start a container, with the port mapping included
@@ -42,3 +46,10 @@ docker container prune  => will remove all stopped containers
 docker login
 docker tag react-docker username/react-docker
 docker push username/react-docker
+
+
+
+shortcut to make a docker project 
+docker init 
+(then make all the changes as required by our project)
+docker compose up
